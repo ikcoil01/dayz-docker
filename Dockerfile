@@ -3,10 +3,10 @@
 FROM redhat/ubi9
 ARG STEAM_USER
 ARG STEAM_PASSWORD
-RUN yum install glibc.i686 libstdc++.i686 -y
+RUN yum install glibc.i686 libstdc++.i686 wget -y
 RUN mkdir -p ~/servers/steamcmd && cd ~/servers/steamcmd
-RUN curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"
-COPY steamcmd_linux.tar.gz /root/servers/steamcmd
+RUN wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"
+RUN cp steamcmd_linux.tar.gz /root/servers/steamcmd/
 WORKDIR /root/servers/steamcmd
 RUN tar zxvf /root/servers/steamcmd/steamcmd_linux.tar.gz
 RUN ~/servers/steamcmd/steamcmd.sh +force_install_dir ~/servers/dayz-server/ +login ${STEAM_USER} ${STEAM_PASSWORD} +app_update 223350 +quit
