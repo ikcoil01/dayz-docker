@@ -1,5 +1,5 @@
-#build docker build -t dayz-test --build-arg STEAM_USER='******' --build-arg STEAM_PASSWORD='*********' .
-#run docker run -p 2302:2302/udp -p 2303:2303/udp -p 2304:2304/udp -p 2305:2305/udp -p 27016:27016/udp -t dayz-test
+#docker build -t dayz-test --build-arg STEAM_USER='******' --build-arg STEAM_PASSWORD='*********' .
+#docker run -p 2302:2302/udp -p 2303:2303/udp -p 2304:2304/udp -p 2305:2305/udp -p 27016:27016/udp -t dayz-test
 FROM redhat/ubi9
 ARG STEAM_USER
 ARG STEAM_PASSWORD
